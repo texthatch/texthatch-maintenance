@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TextHatch - Coming Soon</title>
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico"/>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6366f1',
+            secondary: '#10b981'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Icons (load once) -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <!-- Vanta requires THREE.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .floating { animation: float 6s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .glow { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+  </style>
+</head>
+<body class="bg-white min-h-screen overflow-hidden">
+  <div id="vanta-bg" class="absolute inset-0 z-0"></div>
+
+  <div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+    <!-- Main Content -->
+    <div class="text-center max-w-4xl mx-auto">
+      <!-- Logo & Brand -->
+      <div class="floating mb-8">
+        <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl glow mb-6">
+          <i data-feather="edit-3" class="text-white w-8 h-8"></i>
+        </div>
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-4">
+          Text<span class="text-primary">Hatch</span>
+        </h1>
+      </div>
+
+      <!-- Slogan -->
+      <div class="mb-12">
+        <p class="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed">
+          Simple. Fast. Random text generation for everyone.
+        </p>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Launching Soon</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-md mx-auto">
+          <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100">
+            <div id="days" class="text-3xl font-bold text-primary">00</div>
+            <div class="text-sm text-gray-500 mt-1">Days</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100">
+            <div id="hours" class="text-3xl font-bold text-primary">00</div>
+            <div class="text-sm text-gray-500 mt-1">Hours</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100">
+            <div id="minutes" class="text-3xl font-bold text-primary">00</div>
+            <div class="text-sm text-gray-500 mt-1">Minutes</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100">
+            <div id="seconds" class="text-3xl font-bold text-primary">00</div>
+            <div class="text-sm text-gray-500 mt-1">Seconds</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="mb-12 max-w-md mx-auto">
+        <div class="flex justify-between text-sm text-gray-600 mb-2">
+          <span>Progress</span>
+          <span id="progress-percentage">0%</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+          <div id="progress-bar" class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Features Preview -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-2xl mx-auto">
+        <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+            <i data-feather="zap" class="text-primary w-6 h-6"></i>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Lightning Fast</h3>
+          <p class="text-sm text-gray-600">Generate text in milliseconds with our optimized engine</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+            <i data-feather="layers" class="text-secondary w-6 h-6"></i>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Multiple Styles</h3>
+          <p class="text-sm text-gray-600">Choose from various text generation modes and templates</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+            <i data-feather="users" class="text-purple-500 w-6 h-6"></i>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">For Everyone</h3>
+          <p class="text-sm text-gray-600">Perfect for writers, developers, and creative minds alike</p>
+        </div>
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-md mx-auto">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Get Notified First</h3>
+        <p class="text-gray-600 text-sm mb-6">Be the first to know when we launch and get exclusive early access</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+          <button class="bg-primary hover:bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2">
+            <i data-feather="bell" class="w-4 h-4"></i>
+            Notify Me
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-16 text-center">
+      <div class="flex justify-center space-x-6 mb-4">
+        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
+          <i data-feather="twitter" class="w-5 h-5"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
+          <i data-feather="github" class="w-5 h-5"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
+          <i data-feather="linkedin" class="w-5 h-5"></i>
+        </a>
+      </div>
+      <p class="text-gray-500 text-sm">© 2024 TextHatch. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    // --- Vanta.js Background (safe init so it never blocks the timer) ---
+    (function initVanta() {
+      try {
+        VANTA.GLOBE({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x6366f1,
+          backgroundColor: 0xffffff,
+          size: 0.8
+        });
+      } catch (e) {
+        console.warn("VANTA init failed (continuing):", e);
+      }
+    })();
+
+    // --- Countdown Settings ---
+    // Target: Oct 20, 2025 00:00 at UTC+06 (Dhaka)
+    const LAUNCH_ISO = "2025-10-20T00:00:00+06:00";
+    const countDownDate = new Date(LAUNCH_ISO).getTime();
+
+    // Progress: pick a start moment before the launch (edit as you like)
+    const START_ISO = new Date().toISOString(); // or keep the fixed date above
+    const startDate = new Date(START_ISO).getTime();
+    const totalDuration = Math.max(countDownDate - startDate, 1); // avoid divide-by-zero
+
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = countDownDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        document.getElementById("progress-bar").style.width = "100%";
+        document.getElementById("progress-percentage").textContent = "100%";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+
+      // Progress bar (clamped 0–100)
+      const elapsed = now - startDate;
+      const progress = Math.min(Math.max((elapsed / totalDuration) * 100, 0), 100);
+      document.getElementById("progress-bar").style.width = progress + "%";
+      document.getElementById("progress-percentage").textContent = Math.round(progress) + "%";
+    }
+
+    // Initial tick + interval
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Feather icons
+    if (window.feather && typeof feather.replace === "function") {
+      feather.replace();
+    }
+  </script>
+</body>
+</html>
